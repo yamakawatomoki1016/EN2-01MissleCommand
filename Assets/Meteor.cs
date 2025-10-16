@@ -5,10 +5,11 @@ public class Meteor : MonoBehaviour
 {
     [SerializeField] private float fallSpeedMin_ = 1;
     [SerializeField] private float fallSpeedMax_ = 3;
-    private Explosion explosionPrefab_;
+    [SerializeField] private Explosion explosionPrefab_;
     private BoxCollider2D groundCollider_;
     private Rigidbody2D rb_;
     private GameManager gameManager_;
+    [SerializeField] ScoreEffect scoreEffectPrefab_;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -50,7 +51,13 @@ public class Meteor : MonoBehaviour
     public void AddScore(int point) { }
     private void Explosion()
     {
-        gameManager_.AddScore(100);
+        int score = 100;
+        ScoreEffect scoreEffect = Instantiate(
+            scoreEffectPrefab_,
+            transform.position,
+            Quaternion.identity
+            );
+        gameManager_.AddScore(score);
         Instantiate(explosionPrefab_, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }

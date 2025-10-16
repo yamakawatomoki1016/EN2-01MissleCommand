@@ -169,6 +169,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallSpeedMin_: 1
   fallSpeedMax_: 3
+  explosionPrefab_: {fileID: 8925722687624113057, guid: 797874cc66e6d6f44b653d0535680983, type: 3}
+  scoreEffectPrefab_: {fileID: 1125690423841484831, guid: 229d0741e6e474646b9138a4c7bacbc9, type: 3}
 --- !u!198 &1130369299052327553
 ParticleSystem:
   m_ObjectHideFlags: 0
