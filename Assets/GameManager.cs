@@ -7,6 +7,10 @@ public class GameManager : MonoBehaviour
     [SerializeField, Header("Prefabs")]
     private Explosion explosionPrefab_;
     [SerializeField]
+    private GameObject reticlePrefab_;
+    [SerializeField]
+    private Missile missilePrefab_;
+    [SerializeField]
     private Meteor meteorPrefab_;
     [SerializeField, Header("MeteorSpawner")]
     private BoxCollider2D ground_;
@@ -24,6 +28,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private float maxLife_ = 10;
     private float life_;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void AddScore(int point)
     {
@@ -57,11 +62,18 @@ public class GameManager : MonoBehaviour
         ResetLife();
     }
 
-    private void GenerateExplosion()
+    private void GenerateMissile()
     {
-        Vector3 clickPosition = mainCamera_.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 clickPosition = 
+            mainCamera_.ScreenToWorldPoint(Input.mousePosition);
         clickPosition.z = 0;
-        Explosion explosion = Instantiate(explosionPrefab_, clickPosition, Quaternion.identity);
+        GameObject reticle = Instantiate(
+            reticlePrefab_, clickPosition, Quaternion.identity);
+
+        Vector3 launchPosition = new Vector3(0,-3,0);
+        Missile missile = Instantiate(
+            missilePrefab_, launchPosition, Quaternion.identity);
+        missile.Setup(reticle);
     }
 
     private void UpdateMeteorTimer()
@@ -86,7 +98,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            GenerateExplosion();
+            GenerateMissile();
         }
         UpdateMeteorTimer();
     }
