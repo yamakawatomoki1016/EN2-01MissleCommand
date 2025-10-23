@@ -1,5 +1,5 @@
 using UnityEngine;
-using TMPro; 
+using TMPro;
 
 // TMP_TextiTextMeshPro - Textj‚ğ•K{‚É‚·‚é
 [RequireComponent(typeof(TMP_Text))]
