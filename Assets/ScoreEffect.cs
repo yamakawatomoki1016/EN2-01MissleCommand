@@ -1,5 +1,5 @@
 using UnityEngine;
-using TMPro; // ← 追加（TextMeshProを使うため）
+using TMPro; 
 
 // TMP_Text（TextMeshPro - Text）を必須にする
 [RequireComponent(typeof(TMP_Text))]
