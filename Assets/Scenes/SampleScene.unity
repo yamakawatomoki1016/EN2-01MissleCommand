@@ -722,6 +722,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionPrefab_: {fileID: 8925722687624113057, guid: 797874cc66e6d6f44b653d0535680983, type: 3}
+  reticlePrefab_: {fileID: 2796838777154452633, guid: ea1999b64e25f5e40b077421ade45687, type: 3}
+  missilePrefab_: {fileID: 583117002326973300, guid: e4d9e686191cabb4dbd69b89625ec079, type: 3}
   meteorPrefab_: {fileID: 5718181741227796668, guid: 0e7c9874c5e8f484eb1dc7c6f15602c1, type: 3}
   ground_: {fileID: 9115612803538627600, guid: ba8d431107253db4993b9b109963aa8a, type: 3}
   meteorInterval_: 1
