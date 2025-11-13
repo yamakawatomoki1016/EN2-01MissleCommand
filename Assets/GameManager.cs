@@ -28,6 +28,14 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private float maxLife_ = 10;
     private float life_;
+    [SerializeField, Header("Prefabs")]
+    List<ItemBase> items_;
+    [SerializeField, Header("ItemSettings")]
+    private Transform itemSpawnPoint_;
+    [SerializeField]
+    private float itemSpawnInterval_ = 10;
+    private float itemTimer_ = 0;
+
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void AddScore(int point)
@@ -93,6 +101,28 @@ public class GameManager : MonoBehaviour
         meteor.Setup(ground_, this, explosionPrefab_);
     }
 
+    private ItemBase PickupItem()
+    {
+        int itemPrefabNum = items_.Count;
+        Assert.IsTrue(itemPrefabNum > 0);
+        int pickedupIndex = Random.Range(0,itemPrefabNum);
+        ItemBase pickedupItem = items_[pickedupIndex];
+        return pickedupItem;
+    }
+
+    private void UpdateItemTimer()
+    {
+        itemTimer_ -= Time.deltaTime;
+        if (itemTimer_ > 0) { return; }
+        itemTimer_ += itemSpawnInterval_;
+        ItemBase pickedUpItem = PickupItem();
+        Instantiate(
+         pickedUpItem,
+         itemSpawnPoint_.position,
+         Quaternion.identity
+         );
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -101,5 +131,6 @@ public class GameManager : MonoBehaviour
             GenerateMissile();
         }
         UpdateMeteorTimer();
+        UpdateItemTimer();
     }
 }

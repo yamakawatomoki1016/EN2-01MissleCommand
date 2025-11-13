@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3844023387028391401}
   - component: {fileID: 1625840212032743791}
   - component: {fileID: 8925722687624113057}
-  - component: {fileID: 8874812005382536738}
   m_Layer: 0
   m_Name: GiganticExplosion
   m_TagString: Explosion
@@ -139,17 +138,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chainNum: 0
---- !u!114 &8874812005382536738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3422162954723187470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0111b411860260b47b41dcaa2d5d1375, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed_: 3
-  giganticExplosionPrefab_: {fileID: 8925722687624113057}
