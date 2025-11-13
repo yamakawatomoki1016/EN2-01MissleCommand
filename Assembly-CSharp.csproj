@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\ScoreText.cs" />
+    <Compile Include="Assets\text.cs" />
     <Compile Include="Assets\ItemBase.cs" />
     <Compile Include="Assets\LifeBar.cs" />
     <Compile Include="Assets\Missile.cs" />

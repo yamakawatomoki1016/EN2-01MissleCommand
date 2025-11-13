@@ -4,7 +4,7 @@ using UnityEngine;
 public abstract class ItemBase : MonoBehaviour
 {
     [SerializeField]
-    protected float speed_ = 3;
+    protected float speed_ = 3f;
     protected Camera camera_;
     protected Collider2D collider_;
 
@@ -16,7 +16,10 @@ public abstract class ItemBase : MonoBehaviour
 
     protected virtual void Update()
     {
+        // 右方向に移動
         transform.Translate(Vector3.right * speed_ * Time.deltaTime);
+
+        // 画面外に出たら削除
         float worldScreenRight = camera_.orthographicSize * camera_.aspect;
         float boundSize = collider_.bounds.size.x;
         if (transform.position.x > worldScreenRight + boundSize)
@@ -27,8 +30,12 @@ public abstract class ItemBase : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Explosion")) { Get(); }
+        if (collision.CompareTag("Explosion"))
+        {
+            Get();
+        }
     }
 
+    // 各アイテム固有の効果を定義
     public abstract void Get();
 }
