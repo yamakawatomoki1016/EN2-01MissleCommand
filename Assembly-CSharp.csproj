@@ -62,9 +62,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\ScoreText.cs" />
+    <Compile Include="Assets\ItemBase.cs" />
     <Compile Include="Assets\LifeBar.cs" />
     <Compile Include="Assets\Missile.cs" />
     <Compile Include="Assets\GameManager.cs" />
+    <Compile Include="Assets\GiganticBomb.cs" />
     <Compile Include="Assets\ScoreEffect.cs" />
     <Compile Include="Assets\Meteor.cs" />
     <Compile Include="Assets\Explosion.cs" />
