@@ -1,7 +1,6 @@
 using UnityEngine;
 using TMPro;
 
-// TMP_Text（TextMeshPro - Text）を必須にする
 [RequireComponent(typeof(TMP_Text))]
 public class ScoreEffect : MonoBehaviour
 {
@@ -19,11 +18,9 @@ public class ScoreEffect : MonoBehaviour
     // スコアを受け取って表示する関数
     public void SetScore(int score)
     {
-        // RequireComponentがあるのでGetComponentはnullにならない
         GetComponent<TMP_Text>().text = score.ToString();
     }
 
-    // Updateは毎フレーム呼ばれる
     void Update()
     {
         // 経過時間をカウント
